@@ -21,6 +21,7 @@ public class Rover {
         this.name = name;
         this.base = new Chassis();
         this.eyes = new Ultrasonic(base);
+        this.floor = new LineSensor(base);
     }
     // Checks for objects within a distance
     public boolean somethingAhead(double cm) {
@@ -32,6 +33,14 @@ public class Rover {
             base.straight(5);
         }
     }
+    void driveToTape() {
+        while (!floor.seesTape()) {
+            base.straight(2);
+        }
+    }
+    void forward(double cm) {
+        base.straight(cm);
+    }
     // Returns the rover's name
     public String toString() {
         return name + " the rover";
@@ -42,6 +51,8 @@ public class Rover {
     private Chassis base;
     // Creates the rover's eyes to detect nearby objects
     private Ultrasonic eyes;
+
+    private LineSensor floor;
     // was supposed to run the program
     public static void main(String[] args) {
 
