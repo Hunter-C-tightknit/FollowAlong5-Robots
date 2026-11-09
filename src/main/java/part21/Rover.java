@@ -38,7 +38,9 @@ public class Rover {
     }
     // Stores each of the rover's parts
     private String name;
+    // creates rover's base for movement
     private Chassis base;
+    // Creates the rover's eyes to detect nearby objects
     private Ultrasonic eyes;
     // was supposed to run the program
     public static void main(String[] args) {
