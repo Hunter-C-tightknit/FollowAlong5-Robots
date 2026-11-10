@@ -11,11 +11,11 @@ import mbot.*;
 // SECTION B — COMMENTS: put a // comment ABOVE every line of code, in YOUR OWN WORDS.
 
 @MBotLab(world = "obstacles")
-public class ObstacleRun {
-    public static void main(String[] args) {
-        Rover rover = new Rover("Dash");
-        rover.reachGoal();
-        System.out.println(rover + " reached the goal");
+public class ObstacleRun { // class named obstacleRun
+    public static void main(String[] args) { // here initializes our program
+        Rover rover = new Rover("Dash"); // creates the rover and names it Dash
+        rover.reachGoal(); // reachGoal is a method used on Dash to make it reach the Goal
+        System.out.println(rover + " reached the goal"); // prints that that Dash reached the goal once reached
     }
 
 }
