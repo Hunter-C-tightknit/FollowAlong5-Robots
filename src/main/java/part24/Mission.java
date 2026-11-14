@@ -13,9 +13,9 @@ import mbot.*;
 public class Mission {
 
     public static void mission(MBot2 bot) {
-        System.out.println("Mission start");// Print a message indicating the mission is starting
+        System.out.println("Mission start: " + bot);// Print a message indicating the mission is starting
         bot.run();// Run the robot's behavior
-        System.out.println("Mission done");// Print a message indicating the mission is complete
+        System.out.println("Mission done: " + bot);// Print a message indicating the mission is complete
     }
 
     public static void main(String[] args) {

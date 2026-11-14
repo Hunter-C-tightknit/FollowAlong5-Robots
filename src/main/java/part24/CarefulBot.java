@@ -14,17 +14,22 @@ import mbot.*;
 //    saying in YOUR OWN WORDS what that line does.
 
 public class CarefulBot extends MBot2 {
-    public CarefulBot(){
+    private int refused = 0;
+
+    public CarefulBot() {
+
         super();// Call the parent MBot2 constructor
     }
+
     @Override
     public void straight(double cm) {
-        if (readUltrasonic() > cm + 20) {// Check if the path ahead is clear enough (distance greater than cm + 20)
+        if (readUltrasonic() > cm + 20) {
             super.straight(cm);// Call the parent straight method to move forward
         } else {
-            turnLedOn(1, 255, 0, 0);// Turn the LED red to indicate it is too close
-            // Print a warning message that movement is skipped
+            refused++;
+            turnLedOn(1, 255, 0, 0);
             System.out.println("CarefulBot: not driving " + cm + " cm, too close");
+
         }
     }
 
@@ -34,4 +39,10 @@ public class CarefulBot extends MBot2 {
             straight(40);// Try to move straight by 40 centimeters safely
         }
     }
+
+    @Override
+    public String toString() {
+        return "CarefulBot (refused " +  refused + " moves)";
+    }
 }
+
